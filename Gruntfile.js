@@ -42,6 +42,21 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
+		jsdoc : {
+			dist : {
+				src: ['src/js/*.js'],
+				options: {
+					destination: 'doc'
+				}
+			}
+		},
+		jsdoc2md: {
+			oneOutputFile: {
+				src: "src/js/combobox.js",
+				dest: "doc/documentation.md"
+			}
+		},
 		shell: {
 			bower_install: {
 				command: 'node node_modules/bower/bin/bower install --force-latest'
@@ -63,11 +78,15 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-stylus');
 	grunt.loadNpmTasks('grunt-karma');
 	grunt.loadNpmTasks('grunt-jscs-checker');
+	grunt.loadNpmTasks("grunt-jsdoc-to-markdown");
+	grunt.loadNpmTasks('grunt-jsdoc');
+
 
 	grunt.registerTask('install', ['clean:install', 'shell:bower_install']);
 	grunt.registerTask('check_style', ['jscs', 'jshint']);
 	grunt.registerTask('test_unit', ['clean:coverage', 'clean:css', 'stylus:compile', 'karma:unit']);
 	grunt.registerTask('test', ['check_style', 'test_unit']);
 	grunt.registerTask('build', ['install', 'test']);
+	grunt.registerTask("doc", "jsdoc2md");
 	grunt.registerTask('default', ['build']);
 };

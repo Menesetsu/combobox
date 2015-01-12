@@ -5,6 +5,7 @@
  * @requires DX.Dom
  * @requires DX.Event
  * @requires Selectbox
+ * @namespace
  */
 var Combobox = (function(DX, window, document, undefined) {
 	'use strict';
@@ -19,7 +20,8 @@ var Combobox = (function(DX, window, document, undefined) {
 			].join('');
 
 	/**
-	 * @constructor
+	 * Creates new combobox
+	 * @constructor Combobox
 	 * @param {HTMLInputElement} input
 	 */
 	return function Combobox(input) {
@@ -29,7 +31,11 @@ var Combobox = (function(DX, window, document, undefined) {
 			selectBox,
 			selectBoxBlock;
 
-
+		/**
+		 * Triggers when combobox is created
+		 *
+		 * @event combobox:created
+		 */
 		function init() {
 			initAppearance();
 			initSelectBox();
@@ -82,18 +88,39 @@ var Combobox = (function(DX, window, document, undefined) {
 		}
 
 		init();
-
+		/**
+		 * Get HTMLNode containing combobox
+		 * @method getBlock
+		 * @returns {Node}
+		 */
 		this.getBlock = function() {
 			return block;
 		};
+		/**
+		 * Get element which listens to events
+		 * @method getEventTarget
+		 * @returns {Node}
+		 */
 		this.getEventTarget = function() {
 			return input;
 		};
 	};
 })(DX, window, document);
 
+/** @constant
+ * @type {string}
+ * @default
+ * @memberof Combobox
+ */
 Combobox.E_CREATED = 'combobox:created';
 
+/**
+ * Disable combobox
+ * @method enable
+ * @static
+ * @memberof Combobox
+ * @param {Node} HTMLNode containing select block
+ */
 Combobox.disable = function disableCombobox(input) {
 	'use strict';
 
@@ -105,7 +132,13 @@ Combobox.disable = function disableCombobox(input) {
 	DX.Bem.addModifier(container, 'disabled', cn);
 	Selectbox.disable(select);
 };
-
+/**
+ * Enable combobox
+ * @method enable
+ * @static
+ * @memberof Combobox
+ * @param {Node} HTMLNode containing select block
+ */
 Combobox.enable = function enableCombobox(input) {
 	'use strict';
 
