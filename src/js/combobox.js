@@ -11,20 +11,20 @@ var Combobox = (function(DX, window, document, undefined) {
 	'use strict';
 
 	var CN_COMBOBOX = 'comboBox',
-			CN_INNER = CN_COMBOBOX + '--inner',
-			CN_INPUT = CN_COMBOBOX + '--input',
-			tmpl = [
-				'<div class="' + CN_INNER + '">',
-				'<span class="' + CN_INPUT + '"></span>',
-				'</div>'
-			].join('');
+		CN_INNER = CN_COMBOBOX + '--inner',
+		CN_INPUT = CN_COMBOBOX + '--input',
+		tmpl = [
+			'<div class="' + CN_INNER + '">',
+			'<span class="' + CN_INPUT + '"></span>',
+			'</div>'
+		].join('');
 
 	/**
 	 * Creates new combobox
 	 * @constructor Combobox
 	 * @param {HTMLInputElement} input
 	 */
-	return function Combobox(input) {
+	return function Combobox(input, optionsData, customDropDownConfig, customSelectBoxConfig) {
 		var block,
 			inputContainer,
 			select,
@@ -62,7 +62,11 @@ var Combobox = (function(DX, window, document, undefined) {
 
 		function initSelectBox() {
 			select = DX.$(input.getAttribute('data-list'));
-			selectBox = new Selectbox(select);
+			if (!select) {
+				select = document.createElement('select');
+				input.parentNode.insertBefore(select, input);
+			}
+			selectBox = new Selectbox(select, optionsData, customDropDownConfig, customSelectBoxConfig);
 			selectBoxBlock = selectBox.getBlock();
 		}
 
@@ -119,7 +123,7 @@ Combobox.E_CREATED = 'combobox:created';
  * @method enable
  * @static
  * @memberof Combobox
- * @param {Node} HTMLNode containing select block
+ * @param {Node} input containing select block
  */
 Combobox.disable = function disableCombobox(input) {
 	'use strict';
@@ -137,7 +141,7 @@ Combobox.disable = function disableCombobox(input) {
  * @method enable
  * @static
  * @memberof Combobox
- * @param {Node} HTMLNode containing select block
+ * @param {Node} input containing select block
  */
 Combobox.enable = function enableCombobox(input) {
 	'use strict';

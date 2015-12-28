@@ -31,6 +31,9 @@
 			</select>
 			<input type="text" id="test" data-list="Combobox_Id">
 		</span>
+		<span class="control--wrap">
+			<input type="text" id="test2" data-list="Combobox_Id2">
+		</span>
 	</div>
 
 	<button id="disable" type="button">disable</button>
@@ -38,11 +41,18 @@
 
 	<script>
 		var input = document.getElementById('test'),
+			input2 = document.getElementById('test2'),
 			disable = document.getElementById('disable'),
-			enable = document.getElementById('enable'),
-            combobox;
+			enable = document.getElementById('enable');
 
-        combobox = new Combobox(input);
+		var data = [
+			{"value": "1", "text": "wow", "modifiers": ["opt1"], "icon": "♡"},
+			{"value": "2", "text": "such", "modifiers": ["opt3"], "icon": "♥", iconNum: '3'},
+			{"value": "3", "text": "dropdown", "modifiers": ["opt3"], "icon": "♡"}
+		];
+
+		var combobox = new Combobox(input);
+		var combobox2 = new Combobox(input2, data);
 
         Combobox.disable(input);
 		disable.addEventListener('click', function(e) {

@@ -14,6 +14,6 @@
   ],
   "dependencies": {
     "dxjs": "devex-web-frontend/dxjs#^2.0.3",
-    "selectbox": "devex-web-frontend/selectbox#^2.0.1"
+    "selectbox": "devex-web-frontend/selectbox#svg"
   }
 }

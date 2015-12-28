@@ -4,9 +4,10 @@
 var SelectboxMock = (function(DX, window, document, undefined) {
 	'use strict';
 
-	function SelectboxMock(select) {
+	function SelectboxMock(select, data, dropdown, selectbox) {
 		var container;
 
+		SelectboxMock.instance = this;
 		function init() {
 			var selectedIndex = select.selectedIndex;
 
@@ -27,11 +28,17 @@ var SelectboxMock = (function(DX, window, document, undefined) {
 
 			return currentOption.label || currentOption.textContent;
 		}
-
+		function getConfigs(){
+			return {
+				data: data,
+				dropdown: dropdown,
+				selectbox: selectbox
+			}
+		}
 
 		this.getBlock = getBlock;
 		this.getText = getText;
-
+		this.__getConfigs = getConfigs;
 		init();
 	}
 

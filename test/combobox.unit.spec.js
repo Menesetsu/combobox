@@ -12,6 +12,13 @@ describe('Combobox', function() {
 			'</span>',
 		'</div>'
 	].join('');
+	var noSelectTmpl = [
+		'<div class="control control-comboBox">',
+			'<span class="control--wrap">',
+				'<input type="text" id="test" data-list="Combobox_Id">',
+			'</span>',
+		'</div>'
+	].join('');
 
 	beforeEach(function() {
 		document.body.innerHTML = tmpl;
@@ -44,6 +51,27 @@ describe('Combobox', function() {
 			new Combobox(input);
 
 			expect(input.value).toBe('Jim Morrison');
+		});
+
+		it('should create select element if there are none', function() {
+			document.body.innerHTML = noSelectTmpl;
+			var input = document.querySelector('input');
+
+			new Combobox(input);
+
+			expect(document.querySelector('select')).not.toBeNull();
+		});
+
+		it('should create select element if there are none', function() {
+			var input = document.querySelector('input');
+			var data = {a:3},
+				selectboxConfig = {b:3},
+				dropdownConfig = {c:4};
+			new Combobox(input, data, dropdownConfig,selectboxConfig);
+			var providedData = window.Selectbox.instance.__getConfigs();
+			expect(providedData.data).toBe(data);
+			expect(providedData.dropdown).toBe(dropdownConfig);
+			expect(providedData.selectbox).toBe(selectboxConfig);
 		});
 
 		it('should set selected option text as input value, if input value is empty', function() {
