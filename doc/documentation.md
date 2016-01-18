@@ -3,16 +3,16 @@
 **Classes**
 
 * [class: Combobox](#Combobox)
-  * [new Combobox(input)](#new_Combobox)
-  * [Combobox.enable(HTMLNode)](#Combobox.enable)
-  * [Combobox.enable(HTMLNode)](#Combobox.enable)
+  * [new Combobox(input, optionsData, customDropDownConfig, customSelectBoxConfig)](#new_Combobox)
+  * [Combobox.enable(input)](#Combobox.enable)
+  * [Combobox.enable(input)](#Combobox.enable)
   * [const: Combobox.E_CREATED](#Combobox.E_CREATED)
 
 **Namespaces**
 
 * [Combobox](#Combobox)
-  * [Combobox.enable(HTMLNode)](#Combobox.enable)
-  * [Combobox.enable(HTMLNode)](#Combobox.enable)
+  * [Combobox.enable(input)](#Combobox.enable)
+  * [Combobox.enable(input)](#Combobox.enable)
   * [const: Combobox.E_CREATED](#Combobox.E_CREATED)
 
 **Events**
@@ -29,34 +29,37 @@
 **Members**
 
 * [class: Combobox](#Combobox)
-  * [new Combobox(input)](#new_Combobox)
-  * [Combobox.enable(HTMLNode)](#Combobox.enable)
-  * [Combobox.enable(HTMLNode)](#Combobox.enable)
+  * [new Combobox(input, optionsData, customDropDownConfig, customSelectBoxConfig)](#new_Combobox)
+  * [Combobox.enable(input)](#Combobox.enable)
+  * [Combobox.enable(input)](#Combobox.enable)
   * [const: Combobox.E_CREATED](#Combobox.E_CREATED)
 
 <a name="new_Combobox"></a>
-##new Combobox(input)
+##new Combobox(input, optionsData, customDropDownConfig, customSelectBoxConfig)
 Creates new combobox
 
 **Params**
 
 - input `HTMLInputElement`  
+- optionsData `Object` - data as an Object, not to be taken from select element  
+- customDropDownConfig `Object`  
+- customSelectBoxConfig `Object`  
 
 <a name="Combobox.enable"></a>
-##Combobox.enable(HTMLNode)
+##Combobox.enable(input)
 Disable combobox
 
 **Params**
 
-- HTMLNode `Node` - containing select block  
+- input `Node` - containing select block  
 
 <a name="Combobox.enable"></a>
-##Combobox.enable(HTMLNode)
+##Combobox.enable(input)
 Enable combobox
 
 **Params**
 
-- HTMLNode `Node` - containing select block  
+- input `Node` - containing select block  
 
 <a name="Combobox.E_CREATED"></a>
 ##const: Combobox.E_CREATED
@@ -68,25 +71,25 @@ Enable combobox
 **Members**
 
 * [Combobox](#Combobox)
-  * [Combobox.enable(HTMLNode)](#Combobox.enable)
-  * [Combobox.enable(HTMLNode)](#Combobox.enable)
+  * [Combobox.enable(input)](#Combobox.enable)
+  * [Combobox.enable(input)](#Combobox.enable)
   * [const: Combobox.E_CREATED](#Combobox.E_CREATED)
 
 <a name="Combobox.enable"></a>
-##Combobox.enable(HTMLNode)
+##Combobox.enable(input)
 Disable combobox
 
 **Params**
 
-- HTMLNode `Node` - containing select block  
+- input `Node` - containing select block  
 
 <a name="Combobox.enable"></a>
-##Combobox.enable(HTMLNode)
+##Combobox.enable(input)
 Enable combobox
 
 **Params**
 
-- HTMLNode `Node` - containing select block  
+- input `Node` - containing select block  
 
 <a name="Combobox.E_CREATED"></a>
 ##const: Combobox.E_CREATED

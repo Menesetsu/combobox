@@ -23,6 +23,9 @@ var Combobox = (function(DX, window, document, undefined) {
 	 * Creates new combobox
 	 * @constructor Combobox
 	 * @param {HTMLInputElement} input
+	 * @param {Object} optionsData data as an Object, not to be taken from select element
+	 * @param {Object} customDropDownConfig
+	 * @param {Object} customSelectBoxConfig
 	 */
 	return function Combobox(input, optionsData, customDropDownConfig, customSelectBoxConfig) {
 		var block,
