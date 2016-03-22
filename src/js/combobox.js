@@ -7,7 +7,7 @@
  * @requires Selectbox
  * @namespace
  */
-var Combobox = (function(DX, window, document, undefined) {
+var Combobox = (function(DX) {
 	'use strict';
 
 	var CN_COMBOBOX = 'comboBox',
@@ -112,7 +112,7 @@ var Combobox = (function(DX, window, document, undefined) {
 			return input;
 		};
 	};
-})(DX, window, document);
+})(DX);
 
 /** @constant
  * @type {string}
